@@ -16,7 +16,7 @@ class CreateTransactionService {
 
   public execute({ title, value, type }: RequestDTO): Transaction {
     if (!['income', 'outcome'].includes(type)) {
-      throw new Error('Transaction type is invalid');
+      throw new Error('Transação inválida. Permitido somente Entrada e Saída');
     }
 
     const { total } = this.transactionsRepository.getBalance();
